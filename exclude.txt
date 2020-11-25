@@ -1,0 +1,7 @@
+._.DS_Store
+.DS_Store
+.env
+.git
+node_modules
+backend.tar.gz
+deploy.sh
