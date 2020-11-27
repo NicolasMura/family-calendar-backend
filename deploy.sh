@@ -17,4 +17,4 @@ ssh -i $path_ssh_key nmura@family-calendar.nicolasmura.com bash -c "'
   tar xzf backend.tar.gz
   mv ../.env .
 '";
-# echo done
+echo done

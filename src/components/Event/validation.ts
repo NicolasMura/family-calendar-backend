@@ -22,12 +22,13 @@ class EventValidation extends Validation {
   * @returns {Joi.ValidationResult<IEventModel >}
   * @memberof EventValidation
   */
-  createEvent(params: IEventModel): Joi.ValidationResult < IEventModel > {
+  createEvent(params: IEventModel): Joi.ValidationResult<IEventModel> {
     const schema: Joi.Schema = Joi.object().keys({
       title: Joi.string().required(),
       startDate: Joi.date().timestamp('unix'),
       endDate: Joi.date().timestamp('unix'),
-      usersId: Joi.array().items(Joi.string())
+      reminders: Joi.array().items(Joi.number()),
+      usersIds: Joi.array().items(Joi.string()).min(1)
     });
 
     return Joi.validate(params, schema);

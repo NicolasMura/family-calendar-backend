@@ -1,5 +1,5 @@
 import EventService from './service';
-import { HttpError } from '../../config/error';
+import HttpError from '../../config/error/index';
 import { IEventModel } from './model';
 import { NextFunction, Request, Response } from 'express';
 

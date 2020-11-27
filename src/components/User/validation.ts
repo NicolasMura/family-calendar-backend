@@ -23,11 +23,21 @@ class UserValidation extends Validation {
   * @memberof UserValidation
   */
   createUser(params: IUserModel): Joi.ValidationResult<IUserModel> {
+    const userProfile: Joi.Schema = Joi.object().keys({
+      isChild: Joi.boolean().required(),
+      name: Joi.string().required(),
+      gender: Joi.string(),
+      location: Joi.string(),
+      picture: Joi.string()
+    }).required();
+
     const schema: Joi.Schema = Joi.object().keys({
+      mobile: Joi.string(),
       name: Joi.string().required(),
       email: Joi.string().email({
         minDomainAtoms: 2
-      }).required()
+      }).required(),
+      profile: userProfile
     });
 
     return Joi.validate(params, schema);

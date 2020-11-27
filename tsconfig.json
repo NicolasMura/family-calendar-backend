@@ -1,16 +1,18 @@
 {
-    "compilerOptions": {
-        "outDir": "./build/",
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "target": "es6",
-        "sourceMap": true,
-        "plugins": [
-            {
-                "name": "tslint-language-service"
-            }
-        ]
-    },
-    "include": ["./src/**/*"],
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "outDir": "./build/",
+    "module": "es6",
+    "noImplicitAny": true,
+    "target": "es5",
+    "sourceMap": true,
+    "allowJs": true,
+    "plugins": [
+      {
+        "name": "tslint-language-service"
+      }
+    ],
+    "lib": [ "es2015" ]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

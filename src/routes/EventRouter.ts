@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { EventComponent } from '../components';
+import { EventComponent } from '../components/index';
 
 /**
  * @constant {express.Router}

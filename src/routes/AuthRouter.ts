@@ -1,4 +1,4 @@
-import { AuthComponent } from '../components';
+import { AuthComponent } from '../components/index';
 import { Router } from 'express';
 
 /**
@@ -47,7 +47,7 @@ router.post('/signup', AuthComponent.signup);
 /**
  * POST method route
  * @example http://localhost:PORT/login
- * 
+ *
  * @swagger
  * /auth/login/:
  *  post:

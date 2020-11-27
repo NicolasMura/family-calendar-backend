@@ -13,6 +13,7 @@ export interface IEventModel extends Document {
   title: string;
   startDate: string;
   endtDate: string;
+  reminders: number[];
   usersIds: string[];
 }
 
@@ -21,11 +22,6 @@ export interface IEventModel extends Document {
 * components:
 *  schemas:
 *    EventSchema:
-*      required:
-*        - title
-*        - startDate
-*        - endDate
-*        - usersIds
 *      properties:
 *        title:
 *          type: string
@@ -33,8 +29,18 @@ export interface IEventModel extends Document {
 *          type: string
 *        endDate:
 *          type: string
+*        reminders:
+*          type: array
 *        usersIds:
 *          type: array
+*      required:
+*        - title
+*        - startDate
+*        - usersIds
+*      examples:
+*        title: "Echographie n°3 !"
+*        startDate: "1605285140"
+*        usersIds: ["5fbec6aea71e9a5d16e11037"]
 *    Events:
 *      type: array
 *      items:
@@ -43,11 +49,18 @@ export interface IEventModel extends Document {
 const EventSchema: Schema = new Schema({
   title: {
     type: String,
-    unique: false,
     trim: true
   },
   startDate: String,
-  endDate: String,
+  endDate:  {
+    type: String,
+    default: ''
+  },
+  reminders: {
+    type: Array,
+    default: []
+    // default: ['']
+  },
   usersIds: Array
 }, {
   collection: 'eventmodel',

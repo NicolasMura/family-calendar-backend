@@ -10,19 +10,19 @@ import { NextFunction } from 'express';
 * @extends {Document}
 */
 export interface IUserModel extends Document {
+  mobile: string;
   email: string;
   password: string;
   passwordResetToken: string;
   passwordResetExpires: Date;
 
-  facebook: string;
   tokens: AuthToken[];
 
   profile: {
+    isChild: boolean,
     name: string,
     gender: string,
     location: string,
-    website: string,
     picture: string
   };
   comparePassword: (password: string) => Promise < boolean > ;
@@ -39,13 +39,10 @@ export type AuthToken = {
 * components:
 *  schemas:
 *    UserSchema:
-*      required:
-*        - email
-*        - name
 *      properties:
 *        id:
 *          type: string
-*        name:
+*        mobile:
 *          type: string
 *        email:
 *          type: string
@@ -58,12 +55,43 @@ export type AuthToken = {
 *          format: date
 *        tokens:
 *          type: array
+*        profile:
+*          properties:
+*            isChild:
+*              type: boolean
+*            name:
+*              type: string
+*            gender:
+*              type: string
+*            location:
+*              type: string
+*            picture:
+*              type: string
+*          required:
+*            - isChild
+*            - name
+*      required:
+*        - email
+*        - password
+*      examples:
+*        mobile: "0033648347451"
+*        email: "1605285140"
+*        password: "bob"
+*        profile: {
+*          "isChild": false,
+*          "name": "Julie"
+*        }
 *    Users:
 *      type: array
 *      items:
 *        $ref: '#/components/schemas/UserSchema'
 */
 const UserSchema: Schema = new Schema({
+  mobile: {
+    type: String,
+    trim: true,
+    default: ''
+  },
   email: {
     type: String,
     unique: true,
@@ -73,6 +101,22 @@ const UserSchema: Schema = new Schema({
   passwordResetToken: String,
   passwordResetExpires: Date,
   tokens: Array,
+  profile: {
+    isChild: Boolean,
+    name: String,
+    gender: {
+      type: String,
+      default: ''
+    },
+    location: {
+      type: String,
+      default: ''
+    },
+    picture: {
+      type: String,
+      default: ''
+    }
+  }
 }, {
   collection: 'usermodel',
   versionKey: false

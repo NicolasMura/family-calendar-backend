@@ -2,17 +2,21 @@ import * as mongoose from 'mongoose';
 import config from '../env/index';
 
 interface IConnectOptions {
-  autoReconnect: boolean;
-  reconnectTries: number; // Never stop trying to reconnect
-  reconnectInterval: number;
+  useUnifiedTopology: boolean;
+  // autoReconnect: boolean;
+  // reconnectTries: number; // Never stop trying to reconnect
+  // reconnectInterval: number;
+  useCreateIndex: boolean;
   loggerLevel ? : string;
   useNewUrlParser ? : boolean;
 }
 
 const connectOptions: IConnectOptions = {
-  autoReconnect: true,
-  reconnectTries: Number.MAX_VALUE,
-  reconnectInterval: 1000,
+  useUnifiedTopology: true,
+  // autoReconnect: true,
+  // reconnectTries: Number.MAX_VALUE,
+  // reconnectInterval: 1000,
+  useCreateIndex: true,
   useNewUrlParser: true,
 };
 
@@ -23,6 +27,7 @@ export const db: mongoose.Connection = mongoose.createConnection(MONGO_URI, conn
 // handlers
 db.on('connecting', () => {
   console.log('\x1b[32m', 'MongoDB :: connecting');
+  console.log(MONGO_URI);
 });
 
 db.on('error', (error) => {
@@ -32,10 +37,12 @@ db.on('error', (error) => {
 
 db.on('connected', () => {
   console.log('\x1b[32m', 'MongoDB :: connected');
+  console.log(MONGO_URI);
 });
 
 db.once('open', () => {
   console.log('\x1b[32m', 'MongoDB :: connection opened');
+  console.log(MONGO_URI);
 });
 
 db.on('reconnected', () => {

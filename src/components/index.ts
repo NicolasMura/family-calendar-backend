@@ -1,6 +1,6 @@
-import * as AuthComponent from './Auth';
-import * as UserComponent from './User';
-import * as EventComponent from './Event';
+import * as AuthComponent from './Auth/index';
+import * as UserComponent from './User/index';
+import * as EventComponent from './Event/index';
 
 export {
   AuthComponent,
