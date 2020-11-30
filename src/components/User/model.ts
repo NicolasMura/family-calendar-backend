@@ -167,4 +167,4 @@ UserSchema.methods.gravatar = function (size: number): string {
   return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
 };
 
-export default connections.db.model < IUserModel > ('UserModel', UserSchema);
+export default connections.db.model<IUserModel>('UserModel', UserSchema);

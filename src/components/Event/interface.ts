@@ -28,6 +28,14 @@ export interface IEventService {
 
   /**
   * @param {string} id
+  * @param {IEventModel} IEventModel
+  * @returns {Promise<IEventModel>}
+  * @memberof IEventService
+  */
+  update(id: string, IEventModel: IEventModel): Promise<IEventModel>;
+
+  /**
+  * @param {string} id
   * @returns {Promise<IEventModel>}
   * @memberof IEventService
   */

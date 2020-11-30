@@ -12,9 +12,10 @@ import { NextFunction } from 'express';
 export interface IEventModel extends Document {
   title: string;
   startDate: string;
-  endtDate: string;
+  endDate: string;
   reminders: number[];
-  usersIds: string[];
+  usersEmails: string[];
+  id: string;
 }
 
 /**
@@ -31,16 +32,18 @@ export interface IEventModel extends Document {
 *          type: string
 *        reminders:
 *          type: array
-*        usersIds:
+*        usersEmails:
 *          type: array
 *      required:
 *        - title
 *        - startDate
-*        - usersIds
+*        - endDate
+*        - usersEmails
 *      examples:
 *        title: "Echographie n°3 !"
-*        startDate: "1605285140"
-*        usersIds: ["5fbec6aea71e9a5d16e11037"]
+*        startDate: "1604509200"
+*        startDate: "1604512800"
+*        usersEmails: ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"]
 *    Events:
 *      type: array
 *      items:
@@ -49,9 +52,13 @@ export interface IEventModel extends Document {
 const EventSchema: Schema = new Schema({
   title: {
     type: String,
-    trim: true
+    trim: true,
+    default: ''
   },
-  startDate: String,
+  startDate: {
+    type: String,
+    default: ''
+  },
   endDate:  {
     type: String,
     default: ''
@@ -61,10 +68,14 @@ const EventSchema: Schema = new Schema({
     default: []
     // default: ['']
   },
-  usersIds: Array
+  usersEmails: {
+    type: Array,
+    default: []
+    // default: ['']
+  }
 }, {
   collection: 'eventmodel',
   versionKey: false
 });
 
-export default connections.db.model < IEventModel > ('EventModel', EventSchema);
+export default connections.db.model<IEventModel>('EventModel', EventSchema);

@@ -53,10 +53,10 @@ router.get('/', EventComponent.findAll);
  *            schema:
  *              $ref: '#/components/schemas/EventSchema'
  *            example:
- *              title: eventTitle
- *              startDate: 1605285140
- *              endDate: 1605288734
- *              usersIds: ["5fad67c14dde0c65bd1ea312"]
+ *              title: "eventTitle"
+ *              startDate: "1605285140"
+ *              endDate: "1605288734"
+ *              usersEmails: ["nicolas.mura@gmail.com"]
  *      responses:
  *        201:
  *          description: return created event
@@ -73,6 +73,46 @@ router.get('/', EventComponent.findAll);
  *                $ref: '#/components/schemas/Error'
  */
 router.post('/', EventComponent.create);
+
+/**
+ * PUT method route
+ * @example http://localhost:PORT/v1/events/:id
+ *
+ * @swagger
+ * /v1/events/{id}:
+ *   put:
+ *      description: Update (PUT) existing Event
+ *      tags: ["events"]
+ *      security:
+ *       - ApiKeyAuth: []
+ *      requestBody:
+ *        description: event update request body
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/EventSchema'
+ *            example:
+ *              title: "updatedEventTitle"
+ *              startDate: "1605285140"
+ *              endDate: "1605288734"
+ *              usersEmails: ["nicolas.mura@gmail.com"]
+ *      responses:
+ *        200:
+ *          description: return updated event
+ *          content:
+ *            application/json:
+ *              schema:
+ *                oneOf:
+ *                  - $ref: '#/components/schemas/EventSchema'
+ *        default:
+ *          description: unexpected error
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/Error'
+ */
+router.put('/:id', EventComponent.update);
 
 /**
  * GET method route

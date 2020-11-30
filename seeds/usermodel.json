@@ -1,0 +1,37 @@
+[{
+  "profile": {
+    "gender": "",
+    "location": "",
+    "picture": "",
+    "isChild": false,
+    "name": "Julie"
+  },
+  "mobile": "0033675818974",
+  "tokens": [],
+  "email": "julie.sbadell@gmail.com",
+  "password": "$2b$10$r4eog8YKNloUtm7a.FrmBuEtKB1AsG04S6acHVUXVafbvq0QGq64C"
+}, {
+  "profile": {
+    "gender": "",
+    "location": "",
+    "picture": "",
+    "isChild": false,
+    "name": "Nico"
+  },
+  "mobile": "0033648347459",
+  "tokens": [],
+  "email": "nicolas.mura@gmail.com",
+  "password": "$2b$10$89FQfmfrFt7N3dHdIpNN0.BpBp1EJu7lNEbUUXSzXM6P5kHaBDs0G"
+}, {
+  "profile": {
+    "gender": "",
+    "location": "",
+    "picture": "",
+    "isChild": true,
+    "name": "Valentine"
+  },
+  "mobile": "",
+  "tokens": [],
+  "email": "test@test.com",
+  "password": "$2b$10$89FQfmfrFt7N3dHdIpNN0.BpBp1EJu7lNEbUUXSzXM6P5kHaBDs0G"
+}]

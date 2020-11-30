@@ -28,7 +28,7 @@ const EventService: IEventService = {
   */
   async findOne(id: string): Promise<IEventModel> {
     try {
-      const validate: Joi.ValidationResult<{ id: string } > = EventValidation.getEvent({
+      const validate: Joi.ValidationResult<{ id: string }> = EventValidation.getEvent({
         id
       });
 
@@ -51,13 +51,41 @@ const EventService: IEventService = {
   */
   async insert(body: IEventModel): Promise<IEventModel> {
     try {
-      const validate: Joi.ValidationResult<IEventModel> = EventValidation.createEvent(body);
+      const validate: Joi.ValidationResult<IEventModel> = EventValidation.createOrUpdateEvent(body);
 
       if (validate.error) {
         throw new Error(validate.error.message);
       }
 
       const event: IEventModel = await EventModel.create(body);
+
+      return event;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
+
+    /**
+    * @param {string} id
+    * @param {IEventModel} event
+    * @returns {Promise<IEventModel>}
+    * @memberof EventService
+    */
+  async update(id: string, body: IEventModel): Promise<IEventModel> {
+    try {
+      const validate: Joi.ValidationResult<IEventModel> = EventValidation.createOrUpdateEvent(body);
+
+      if (validate.error) {
+        throw new Error(validate.error.message);
+      }
+
+      const doc: IEventModel = await EventModel.findOne({
+        _id: id
+      });
+
+      const event: IEventModel = await EventModel.findOneAndUpdate({ _id: doc._id }, body, {
+        new: true
+      });
 
       return event;
     } catch (error) {
@@ -72,7 +100,7 @@ const EventService: IEventService = {
   */
   async remove(id: string): Promise<IEventModel> {
     try {
-      const validate: Joi.ValidationResult<{ id: string } > = EventValidation.removeEvent({
+      const validate: Joi.ValidationResult<{ id: string }> = EventValidation.removeEvent({
         id
       });
 

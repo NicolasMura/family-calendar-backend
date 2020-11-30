@@ -27,7 +27,7 @@ export async function signup(req: Request, res: Response, next: NextFunction): P
     });
   } catch (error) {
     if (error.code === 500) {
-      return next(new HttpError (error.message.status, error.message));
+      return next(new HttpError(error.message.status, error.message));
     }
     res.json({
       status: 400,
@@ -47,7 +47,12 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
   try {
     const user: IUserModel = await AuthService.getUser(req.body);
 
-    const token: string = jwt.sign({ email: user.email }, app.get('secret'), {
+    const payload: Partial<IUserModel> = {
+      mobile: user.mobile,
+      email: user.email,
+      profile: user.profile
+    };
+    const token: string = jwt.sign(payload, app.get('secret'), {
       // expiresIn: '60m'
     });
 

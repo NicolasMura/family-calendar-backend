@@ -15,10 +15,8 @@ const AuthService: IAuthService = {
   * @memberof AuthService
   */
   async createUser(body: IUserModel): Promise<IUserModel> {
-    console.log(body);
     try {
       const validate: Joi.ValidationResult<IUserModel> = AuthValidation.createUser(body);
-      console.log('validate', validate);
 
       if (validate.error) {
         throw new Error(validate.error.message);
@@ -30,7 +28,6 @@ const AuthService: IAuthService = {
         password: body.password,
         profile: body.profile
       });
-      console.log('user', user);
 
       const query: IUserModel = await UserModel.findOne({
         email: body.email

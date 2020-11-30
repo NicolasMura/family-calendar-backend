@@ -1,0 +1,25 @@
+[{
+  "endDate": "1604512800",
+  "reminders": [],
+  "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
+  "title": "Echographie n°3 !",
+  "startDate": "1604509200"
+}, {
+  "endDate": "1605288734",
+  "reminders": [],
+  "usersEmails": ["julie.sabadell@gmail.com"],
+  "title": "Event July",
+  "startDate": "1605285140"
+}, {
+  "endDate": "1605288734",
+  "reminders": [],
+  "usersEmails": ["nicolas.mura@gmail.com"],
+  "title": "Event Nico",
+  "startDate": "1605285140"
+}, {
+  "endDate": "1605288734",
+  "reminders": [],
+  "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
+  "title": "Event Valentine",
+  "startDate": "1605285140"
+}]

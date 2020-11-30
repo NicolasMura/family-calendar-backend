@@ -16,9 +16,10 @@ class AuthValidation extends Validation {
   constructor() {
     super();
   }
+
   /**
   * @param {IUserModel} params
-  * @returns {Joi.ValidationResult<IUserModel >}
+  * @returns {Joi.ValidationResult<IUserModel>}
   * @memberof UserValidation
   */
   createUser(params: IUserModel): Joi.ValidationResult<IUserModel> {
@@ -31,7 +32,7 @@ class AuthValidation extends Validation {
     }).required();
 
     const schema: Joi.Schema = Joi.object().keys({
-      mobile: Joi.string(),
+      mobile: Joi.string().allow(''),
       password: Joi.string().required(),
       email: Joi.string().email({
         minDomainAtoms: 2
@@ -44,7 +45,7 @@ class AuthValidation extends Validation {
   }
   /**
   * @param {IUserModel} params
-  * @returns {Joi.ValidationResult<IUserModel >}
+  * @returns {Joi.ValidationResult<IUserModel>}
   * @memberof UserValidation
   */
   getUser(params: IUserModel): Joi.ValidationResult<IUserModel> {

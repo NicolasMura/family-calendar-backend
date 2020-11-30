@@ -83,7 +83,6 @@ router.post('/signup', AuthComponent.signup);
  */
 router.post('/login', AuthComponent.login);
 
-
 /**
  * @export {express.Router}
  */

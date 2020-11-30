@@ -169,7 +169,7 @@
                 "title": "eventTitle",
                 "startDate": 1605285140,
                 "endDate": 1605288734,
-                "usersIds": [
+                "usersEmails": [
                   "5fad67c14dde0c65bd1ea312"
                 ]
               }
@@ -468,19 +468,19 @@
           "reminders": {
             "type": "array"
           },
-          "usersIds": {
+          "usersEmails": {
             "type": "array"
           }
         },
         "required": [
           "title",
           "startDate",
-          "usersIds"
+          "usersEmails"
         ],
         "examples": {
           "title": "Echographie n°3 !",
           "startDate": "1605285140",
-          "usersIds": [
+          "usersEmails": [
             "5fbec6aea71e9a5d16e11037"
           ]
         }

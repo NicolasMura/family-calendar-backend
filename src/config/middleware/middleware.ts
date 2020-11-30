@@ -29,7 +29,7 @@ export function configure(app: express.Application): void {
   app.use(sendHttpErrorModule);
 
   // cors
-  app.use((req, res, next) => {
+  app.use((req, res, next): void => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS ');
     res.header(
       'Access-Control-Allow-Headers',
@@ -52,7 +52,7 @@ interface CustomResponse extends express.Response {
 * @param {express.Application} app
 */
 export function initErrorHandler(app: express.Application): void {
-  app.use((error: Error, req: express.Request, res: CustomResponse, next: express.NextFunction) => {
+  app.use((error: Error, req: express.Request, res: CustomResponse, next: express.NextFunction): void => {
     if (typeof error === 'number') {
       error = new HttpError(error); // next(404)
     }

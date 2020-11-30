@@ -56,7 +56,7 @@ export function init(app: express.Application): void {
     app.use('/docs', swaggerUi.serve);
     app.get('/docs', swaggerUi.setup(swaggerDoc));
   } else {
-    app.get('/docs', (req, res) => {
+    app.get('/docs', (req, res): void => {
       res.send('<p>Seems like you doesn\'t have <code>swagger.json</code> file.</p>' +
       '<p>For generate doc file use: <code>swagger-jsdoc -d swaggerDef.js -o swagger.json</code> in terminal</p>' +
       '<p>Then, restart your application</p>');
@@ -67,7 +67,7 @@ export function init(app: express.Application): void {
   * @description No results returned mean the object is not found
   * @constructs
   */
-  app.use((req, res, next) => {
+  app.use((req, res, next): void => {
     res.status(404).send(http.STATUS_CODES[404]);
   });
 

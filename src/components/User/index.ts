@@ -50,7 +50,14 @@ export async function create(req: Request, res: Response, next: NextFunction): P
 
     res.status(201).json(user);
   } catch (error) {
-    next(new HttpError(error.message.status, error.message));
+    if (error.code === 500) {
+      return next(new HttpError(error.message.status, error.message));
+    }
+
+    res.json({
+      status: 400,
+      message: error.message
+    });
   }
 }
 
