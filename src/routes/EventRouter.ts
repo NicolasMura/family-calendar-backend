@@ -57,6 +57,8 @@ router.get('/', EventComponent.findAll);
  *              startDate: "1605285140"
  *              endDate: "1605288734"
  *              usersEmails: ["nicolas.mura@gmail.com"]
+ *              color: ["blue"]
+ *              category: ["birthday"]
  *      responses:
  *        201:
  *          description: return created event
@@ -97,6 +99,8 @@ router.post('/', EventComponent.create);
  *              startDate: "1605285140"
  *              endDate: "1605288734"
  *              usersEmails: ["nicolas.mura@gmail.com"]
+ *              color: ["blue"]
+ *              category: ["birthday"]
  *      responses:
  *        200:
  *          description: return updated event

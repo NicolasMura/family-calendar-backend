@@ -11,8 +11,12 @@ import { NextFunction, Request, Response } from 'express';
 * @returns {Promise<void>}
 */
 export async function findAll(req: Request, res: Response, next: NextFunction): Promise<void> {
+  // Access the possibly provided 'minDate' and 'maxDate' query parameters
+  const minDate: any = req.query.minDate;
+  const maxDate: any = req.query.maxDate;
+
   try {
-    const events: IEventModel[] = await EventService.findAll();
+    const events: IEventModel[] = await EventService.findAll(minDate, maxDate);
 
     res.status(200).json(events);
   } catch (error) {

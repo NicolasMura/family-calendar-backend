@@ -3,6 +3,7 @@ import * as connections from '../../config/connection/connection';
 import * as crypto from 'crypto';
 import { Document, Schema } from 'mongoose';
 import { NextFunction } from 'express';
+const moment: any = require('moment');
 
 /**
 * @export
@@ -12,10 +13,13 @@ import { NextFunction } from 'express';
 export interface IEventModel extends Document {
   title: string;
   startDate: string;
+  humanStartDate: string; // just for debug purpose
   endDate: string;
+  humanEndDate: string;   // just for debug purpose
   reminders: number[];
   usersEmails: string[];
-  id: string;
+  color: string;
+  category: string;
 }
 
 /**
@@ -28,12 +32,20 @@ export interface IEventModel extends Document {
 *          type: string
 *        startDate:
 *          type: string
+*        humanStartDate:
+*          type: string
 *        endDate:
+*          type: string
+*        humanEndDate:
 *          type: string
 *        reminders:
 *          type: array
 *        usersEmails:
 *          type: array
+*        color:
+*          type: string
+*        category:
+*          type: string
 *      required:
 *        - title
 *        - startDate
@@ -44,6 +56,8 @@ export interface IEventModel extends Document {
 *        startDate: "1604509200"
 *        startDate: "1604512800"
 *        usersEmails: ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"]
+*        color: ["blue"]
+*        category: ["birthday"]
 *    Events:
 *      type: array
 *      items:
@@ -59,23 +73,40 @@ const EventSchema: Schema = new Schema({
     type: String,
     default: ''
   },
+  humanStartDate: {
+    type: String
+  },
   endDate:  {
     type: String,
     default: ''
   },
+  humanEndDate: {
+    type: String
+  },
   reminders: {
     type: Array,
     default: []
-    // default: ['']
   },
   usersEmails: {
     type: Array,
     default: []
-    // default: ['']
+  },
+  color:  {
+    type: String,
+    default: 'blue'
+  },
+  category:  {
+    type: String,
+    default: ''
   }
 }, {
   collection: 'eventmodel',
   versionKey: false
+}).pre('save', async function (next: NextFunction): Promise < void > {
+  const event: any = this; // tslint:disable-line
+
+  event.humanStartDate = moment.unix(event.startDate).format('YYYY-MM-DDTHH:mm:ssZ');
+  event.humanEndDate = moment.unix(event.endDate).format('YYYY-MM-DDTHH:mm:ssZ');
 });
 
 export default connections.db.model<IEventModel>('EventModel', EventSchema);

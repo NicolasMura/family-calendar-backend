@@ -15,7 +15,14 @@ import app from '../../config/server/server';
 export async function signup(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
     const user: IUserModel = await AuthService.createUser(req.body);
-    const token: string = jwt.sign({ email: user.email }, app.get('secret'), {
+
+    const payload: Partial<IUserModel> = {
+      _id: user._id,
+      mobile: user.mobile,
+      email: user.email,
+      profile: user.profile
+    };
+    const token: string = jwt.sign(payload, app.get('secret'), {
       // expiresIn: '60m'
     });
 
@@ -48,6 +55,7 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
     const user: IUserModel = await AuthService.getUser(req.body);
 
     const payload: Partial<IUserModel> = {
+      _id: user._id,
       mobile: user.mobile,
       email: user.email,
       profile: user.profile

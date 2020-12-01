@@ -13,10 +13,23 @@ const EventService: IEventService = {
   * @returns {Promise<IEventModel[]>}
   * @memberof EventService
   */
-  async findAll(): Promise<IEventModel[]> {
+  async findAll(minDate: string, maxDate: string): Promise<IEventModel[]> {
     try {
-      return await EventModel.find({});
+      const filter: any = {};
+      if (minDate || maxDate) {
+        filter.startDate = {};
+        if (minDate) {
+          filter.startDate.$gte = minDate;
+        }
+        if (maxDate) {
+          filter.startDate.$lte = maxDate;
+        }
+      }
+
+      return await EventModel.find(filter);
     } catch (error) {
+      console.log(error);
+
       throw new Error(error.message);
     }
   },

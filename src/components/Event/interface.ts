@@ -7,10 +7,12 @@ import { IEventModel } from './model';
 export interface IEventService {
 
   /**
+  * @param {string} minDate
+  * @param {string} maxDate
   * @returns {Promise<IEventModel[]>}
   * @memberof IEventService
   */
-  findAll(): Promise<IEventModel[]>;
+  findAll(minDate: string, maxDate: string): Promise<IEventModel[]>;
 
   /**
   * @param {string} code
