@@ -25,7 +25,7 @@
 }, {
   "endDate": "1605288734",
   "reminders": [],
-  "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
+  "usersEmails": ["nicolas.mura@gmail.com", "test@test.com"],
   "title": "Event Valentine",
   "startDate": "1605285140",
   "color": "",
@@ -34,7 +34,7 @@
   "endDate": "1606086000",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Lundi (S48)",
+  "title": "Event Lundi (S48) Nico",
   "startDate": "1606086000",
   "color": "",
   "category": ""
@@ -42,7 +42,7 @@
   "endDate": "1606172400",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mardi (S48)",
+  "title": "Event Mardi (S48) Nico",
   "startDate": "1606172400",
   "color": "",
   "category": ""
@@ -50,7 +50,7 @@
   "endDate": "1606258800",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mercredi (S48)",
+  "title": "Event Mercredi (S48) Nico",
   "startDate": "1606258800",
   "color": "",
   "category": ""
@@ -58,7 +58,7 @@
   "endDate": "1606345200",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
-  "title": "Event Jeudi (S48)",
+  "title": "Event Jeudi (S48) Nico & Julie",
   "startDate": "1606345200",
   "color": "",
   "category": ""
@@ -66,7 +66,7 @@
   "endDate": "1606431600",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Vendredi (S48)",
+  "title": "Event Vendredi (S48) Nico",
   "startDate": "1606431600",
   "color": "",
   "category": ""
@@ -74,7 +74,7 @@
   "endDate": "1606518000",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Samedi (S48)",
+  "title": "Event Samedi (S48) Nico",
   "startDate": "1606518000",
   "color": "",
   "category": ""
@@ -82,7 +82,7 @@
   "endDate": "1606604400",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Dimanche (S48)",
+  "title": "Event Dimanche (S48) Nico",
   "startDate": "1606604400",
   "color": "",
   "category": ""
@@ -90,7 +90,7 @@
   "endDate": "1606690800",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Lundi (S49)",
+  "title": "Event Lundi (S49) Nico",
   "startDate": "1606690800",
   "color": "",
   "category": ""
@@ -98,7 +98,7 @@
   "endDate": "1606777200",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mardi (S49)",
+  "title": "Event Mardi (S49) Nico",
   "startDate": "1606777200",
   "color": "",
   "category": ""
@@ -106,7 +106,7 @@
   "endDate": "1606863600",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mercredi (S49)",
+  "title": "Event Mercredi (S49) Nico",
   "startDate": "1606863600",
   "color": "",
   "category": ""
@@ -114,7 +114,7 @@
   "endDate": "1606950000",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
-  "title": "Event Jeudi (S49)",
+  "title": "Event Jeudi (S49) Nico & Julie",
   "startDate": "1606950000",
   "color": "",
   "category": ""
@@ -122,7 +122,7 @@
   "endDate": "1607036400",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Vendredi (S49)",
+  "title": "Event Vendredi (S49) Nico",
   "startDate": "1607036400",
   "color": "",
   "category": ""
@@ -130,7 +130,7 @@
   "endDate": "1607122800",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Samedi (S49)",
+  "title": "Event Samedi (S49) Nico",
   "startDate": "1607122800",
   "color": "",
   "category": ""
@@ -138,7 +138,7 @@
   "endDate": "1607209200",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Dimanche (S49)",
+  "title": "Event Dimanche (S49) Nico",
   "startDate": "1607209200",
   "color": "",
   "category": ""
@@ -146,7 +146,7 @@
   "endDate": "1607295600",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Lundi (S50)",
+  "title": "Event Lundi (S50) Nico",
   "startDate": "1607295600",
   "color": "",
   "category": ""
@@ -154,7 +154,7 @@
   "endDate": "1607382000",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mardi (S50)",
+  "title": "Event Mardi (S50) Nico",
   "startDate": "1607382000",
   "color": "",
   "category": ""
@@ -162,7 +162,7 @@
   "endDate": "1607468400",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mercredi (S50)",
+  "title": "Event Mercredi (S50) Nico",
   "startDate": "1607468400",
   "color": "",
   "category": ""
@@ -170,7 +170,7 @@
   "endDate": "1607554800",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
-  "title": "Event Jeudi (S50)",
+  "title": "Event Jeudi (S50) Nico & Julie",
   "startDate": "1607554800",
   "color": "",
   "category": ""
@@ -178,7 +178,7 @@
   "endDate": "1607641200",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Vendredi (S50)",
+  "title": "Event Vendredi (S50) Nico",
   "startDate": "1607641200",
   "color": "",
   "category": ""
@@ -186,7 +186,7 @@
   "endDate": "1607727600",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Samedi (S50)",
+  "title": "Event Samedi (S50) Nico",
   "startDate": "1607727600",
   "color": "",
   "category": ""
@@ -194,7 +194,7 @@
   "endDate": "1607814000",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Dimanche (S50)",
+  "title": "Event Dimanche (S50) Nico",
   "startDate": "1607814000",
   "color": "",
   "category": ""
@@ -202,7 +202,7 @@
   "endDate": "1607900400",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Lundi dans 2 semaines",
+  "title": "Event Lundi dans 2 semaines Nico",
   "startDate": "1607900400",
   "color": "",
   "category": ""

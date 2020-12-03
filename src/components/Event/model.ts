@@ -54,7 +54,7 @@ export interface IEventModel extends Document {
 *      examples:
 *        title: "Echographie n°3 !"
 *        startDate: "1604509200"
-*        startDate: "1604512800"
+*        endDate: "1604512800"
 *        usersEmails: ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"]
 *        color: ["blue"]
 *        category: ["birthday"]
@@ -66,19 +66,16 @@ export interface IEventModel extends Document {
 const EventSchema: Schema = new Schema({
   title: {
     type: String,
-    trim: true,
-    default: ''
+    trim: true
   },
   startDate: {
-    type: String,
-    default: ''
+    type: String
   },
   humanStartDate: {
     type: String
   },
   endDate:  {
-    type: String,
-    default: ''
+    type: String
   },
   humanEndDate: {
     type: String
@@ -88,8 +85,7 @@ const EventSchema: Schema = new Schema({
     default: []
   },
   usersEmails: {
-    type: Array,
-    default: []
+    type: Array
   },
   color:  {
     type: String,
