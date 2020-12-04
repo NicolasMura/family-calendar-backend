@@ -7,30 +7,6 @@
   "color": "",
   "category": ""
 }, {
-  "endDate": "1605288734",
-  "reminders": [],
-  "usersEmails": ["julie.sabadell@gmail.com"],
-  "title": "Event July",
-  "startDate": "1605285140",
-  "color": "",
-  "category": ""
-}, {
-  "endDate": "1605288734",
-  "reminders": [],
-  "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Nico",
-  "startDate": "1605285140",
-  "color": "",
-  "category": ""
-}, {
-  "endDate": "1605288734",
-  "reminders": [],
-  "usersEmails": ["nicolas.mura@gmail.com", "test@test.com"],
-  "title": "Event Valentine",
-  "startDate": "1605285140",
-  "color": "",
-  "category": ""
-}, {
   "endDate": "1606086000",
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com"],
