@@ -1,18 +1,54 @@
+import config from '../env/index';
 import * as http from 'http';
+import * as https from 'https';
+// import * as fs from 'fs';
 import * as serverHandlers from './serverHandlers';
 import server from './server';
 import * as WebSocket from 'ws';
-import { ServerOptions } from 'https';
 
-const Server: http.Server = http.createServer(server);
+let Server: http.Server | https.Server;
+let wss: WebSocket.Server;
+
+Server = http.createServer(server);
+const ServerOptions: WebSocket.ServerOptions = {
+  host: config.wsEndpointHost,
+  server: Server
+};
+
+wss = new WebSocket.Server(ServerOptions);
+
+// if (process.env.NODE_ENV === 'production') {
+//   console.log('production');
+//   console.log(process.env.WS_ENDPOINT_HOST);
+//   Server = https.createServer(
+//     {
+//       // cert: fs.readFileSync('/etc/letsencrypt/live/family-calendar.nicolasmura.com/fullchain.pem'),
+//       // key: fs.readFileSync('/etc/letsencrypt/live/family-calendar.nicolasmura.com/privkey.pem'),
+//     },
+//     server
+//   );
+//   const ServerOptions: WebSocket.ServerOptions = {
+//     host: config.wsEndpointHost,
+//     // port = 3000;
+//     server: Server
+//   };
+
+//   wss = new WebSocket.Server(ServerOptions);
+// } else {
+//   console.log('development');
+//   console.log(process.env.WS_ENDPOINT_HOST);
+//   // ServerOptions.port = 3000;
+//   Server = http.createServer(server);
+//   const ServerOptions: WebSocket.ServerOptions = {
+//     host: config.wsEndpointHost,
+//     // port: 3000,
+//     server: Server
+//   };
+
+//   wss = new WebSocket.Server(ServerOptions);
+// }
 
 // initialize the WebSocket server instance
-// const wss = new WebSocket.Server({ Server });
-const ServerOptions: WebSocket.ServerOptions = {
-  host: process.env.WS_ENDPOINT_HOST || 'localhost',
-  port: 8999
-};
-const wss: WebSocket.Server = new WebSocket.Server(ServerOptions);
 
 interface ExtWebSocket extends WebSocket {
   isAlive: boolean;
@@ -98,14 +134,14 @@ wss.on('connection', (ws: WebSocket) => {
 
     console.log(message);
 
-    // if (message.isBroadcast) {
-    // send back the message to the other clients
-    wss.clients.forEach((client: WebSocket) => {
-      if (client !== ws) {
-        client.send(createWebSocketMessage(message.content, true, message.sender, message.data));
-      }
-    });
-    // }
+    if (message.isBroadcast) {
+      // send back the message to the other clients
+      wss.clients.forEach((client: WebSocket) => {
+        if (client !== ws) {
+          client.send(createWebSocketMessage(message.content, message.isBroadcast, message.sender, message.data));
+        }
+      });
+    }
 
     ws.send(createWebSocketMessage(`You sent -> ${message.content}`, message.isBroadcast));
 

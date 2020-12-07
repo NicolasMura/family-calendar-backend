@@ -37,5 +37,4 @@ export function onListening(): void {
   const bind: string = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
 
   debug(`Listening on ${bind}`);
-  console.log('Running on port ', bind);
 }
