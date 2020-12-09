@@ -118,6 +118,11 @@ function createWebSocketMessage(
 }
 
 wss.on('connection', (ws: WebSocket) => {
+  console.log('connection!');
+  // console.log('ws.url', ws.url);
+  // console.log('ws.protocol', ws.protocol);
+  // console.log('wss.clients', wss.clients);
+  // console.log('wss.address()', wss.address());
 
   const extWs: ExtWebSocket = ws as ExtWebSocket;
 
@@ -132,7 +137,7 @@ wss.on('connection', (ws: WebSocket) => {
 
     const message: WebbSocketMessage = JSON.parse(msg);
 
-    console.log(message);
+    // console.log('WS received message : ', message);
 
     if (message.isBroadcast) {
       // send back the message to the other clients

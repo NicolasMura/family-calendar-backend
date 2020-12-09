@@ -32,6 +32,18 @@
   },
   "mobile": "",
   "tokens": [],
-  "email": "test@test.com",
+  "email": "schtroumpf1@schtroumpf1.com",
+  "password": "$2b$10$89FQfmfrFt7N3dHdIpNN0.BpBp1EJu7lNEbUUXSzXM6P5kHaBDs0G"
+}, {
+  "profile": {
+    "gender": "",
+    "location": "",
+    "picture": "",
+    "isChild": true,
+    "name": "Schtroumpf2"
+  },
+  "mobile": "",
+  "tokens": [],
+  "email": "schtroumpf2@schtroumpf2.com",
   "password": "$2b$10$89FQfmfrFt7N3dHdIpNN0.BpBp1EJu7lNEbUUXSzXM6P5kHaBDs0G"
 }]

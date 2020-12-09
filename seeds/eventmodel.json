@@ -121,24 +121,24 @@
 }, {
   "endDate": "1607295600",
   "reminders": [],
-  "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Lundi (S50) Nico",
+  "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf1@schtroumpf1.com"],
+  "title": "Event Lundi (S50) Nico + Val",
   "startDate": "1607295600",
   "color": "",
   "category": ""
 }, {
   "endDate": "1607382000",
   "reminders": [],
-  "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mardi (S50) Nico",
+  "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf2@schtroumpf2.com"],
+  "title": "Event Mardi (S50) Nico + schtroumpf2",
   "startDate": "1607382000",
   "color": "",
   "category": ""
 }, {
   "endDate": "1607468400",
   "reminders": [],
-  "usersEmails": ["nicolas.mura@gmail.com"],
-  "title": "Event Mercredi (S50) Nico",
+  "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf1@schtroumpf1.com", "schtroumpf2@schtroumpf2.com"],
+  "title": "Event Mercredi (S50) Nico + Val + schtroumpf2",
   "startDate": "1607468400",
   "color": "",
   "category": ""
@@ -147,6 +147,22 @@
   "reminders": [],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
   "title": "Event Jeudi (S50) Nico & Julie",
+  "startDate": "1607554800",
+  "color": "",
+  "category": ""
+}, {
+  "endDate": "1607554800",
+  "reminders": [],
+  "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf1@schtroumpf1.com"],
+  "title": "Event Jeudi (S50) Nico & Val",
+  "startDate": "1607554800",
+  "color": "",
+  "category": ""
+}, {
+  "endDate": "1607554800",
+  "reminders": [],
+  "usersEmails": ["schtroumpf1@schtroumpf1.com"],
+  "title": "Event Jeudi (S50) Val",
   "startDate": "1607554800",
   "color": "",
   "category": ""

@@ -28,8 +28,6 @@ const EventService: IEventService = {
 
       return await EventModel.find(filter);
     } catch (error) {
-      console.log(error);
-
       throw new Error(error.message);
     }
   },
@@ -92,13 +90,15 @@ const EventService: IEventService = {
         throw new Error(validate.error.message);
       }
 
-      const doc: IEventModel = await EventModel.findOne({
-        _id: id
-      });
-
-      const event: IEventModel = await EventModel.findOneAndUpdate({ _id: doc._id }, body, {
+      // const event: IEventModel = await EventModel.replaceOne({ _id: doc._id }, body);
+      const updateResponse: IEventModel = await EventModel.updateOne({ _id: id }, body, {
         new: true
       });
+
+      const event: IEventModel = await EventModel.findOne({
+        _id: id
+      });
+      // console.log('updated event : ', event);
 
       return event;
     } catch (error) {
@@ -121,9 +121,19 @@ const EventService: IEventService = {
         throw new Error(validate.error.message);
       }
 
-      const event: IEventModel = await EventModel.findOneAndRemove({
+      const event: IEventModel = await EventModel.findOne({
         _id: Types.ObjectId(id)
       });
+      // console.log('try to remove event : ', event);
+
+      // const event: IEventModel = await EventModel.findOneAndRemove({
+      //   _id: Types.ObjectId(id),
+      //   // useFindAndModify: false
+      // });
+      await EventModel.deleteOne({
+        _id: Types.ObjectId(id)
+      });
+      // console.log('event removed successfully!');
 
       return event;
     } catch (error) {

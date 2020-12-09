@@ -80,9 +80,18 @@ const UserService: IUserService = {
         throw new Error(validate.error.message);
       }
 
-      const user: IUserModel = await UserModel.findOneAndRemove({
+      const user: IUserModel = await UserModel.findOne({
         _id: Types.ObjectId(id)
       });
+      // console.log('try to remove user : ', user);
+
+      // const user: IUserModel = await UserModel.findOneAndRemove({
+      //   _id: Types.ObjectId(id)
+      // });
+      await UserModel.deleteOne({
+        _id: Types.ObjectId(id)
+      });
+      // console.log('user removed successfully!');
 
       return user;
     } catch (error) {
