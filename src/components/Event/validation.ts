@@ -28,7 +28,7 @@ class EventValidation extends Validation {
       title: Joi.string().required(),
       startDate: Joi.date().timestamp('unix').required(),
       endDate: Joi.date().timestamp('unix').required(),
-      reminders: Joi.array().items(Joi.number()),
+      reminders: Joi.array().items(Joi.string()),
       usersEmails: Joi.array().items(Joi.string()).min(1).required(),
       color: Joi.string(),
       category: Joi.string().allow('')

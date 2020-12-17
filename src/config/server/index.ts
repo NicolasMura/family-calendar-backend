@@ -5,6 +5,7 @@ import * as https from 'https';
 import * as serverHandlers from './serverHandlers';
 import server from './server';
 import * as WebSocket from 'ws';
+import { SchedulerComponent } from '../../components/index';
 
 let Server: http.Server | https.Server;
 let wss: WebSocket.Server;
@@ -156,8 +157,16 @@ wss.on('connection', (ws: WebSocket) => {
   ws.send(createWebSocketMessage('Connected to WebSocket server!'));
 
   ws.on('error', (err) => {
-    console.warn(`Client disconnected - reason: ${err}`);
+    console.warn(`Error - Client disconnected - reason: ${err}`);
   });
+
+  ws.on('close', (code, reason) => {
+    console.log(`Client disconnected - code: ${code}, reason: ${reason}`);
+  });
+});
+
+wss.on('close', () => {
+  console.log(`Client disconnected`);
 });
 
 setInterval(() => {
@@ -184,3 +193,10 @@ Server.on('error',
   (error: Error): void => serverHandlers.onError(error, server.get('port')));
 Server.on('listening',
 serverHandlers.onListening.bind(Server));
+
+/**
+* Get all existing events and scan for upcoming notifications
+* @TODO: to be improved!
+*/
+// SchedulerComponent.initSchedule();
+SchedulerComponent.checkForNotificationsEveryMinute();

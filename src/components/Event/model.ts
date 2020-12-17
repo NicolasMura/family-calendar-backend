@@ -16,7 +16,7 @@ export interface IEventModel extends Document {
   humanStartDate: string; // just for debug purpose
   endDate: string;
   humanEndDate: string;   // just for debug purpose
-  reminders: number[];
+  reminders: string[];
   usersEmails: string[];
   color: string;
   category: string;

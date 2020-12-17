@@ -1,6 +1,6 @@
 [{
   "endDate": "1604512800",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
   "title": "Echographie n°3 !",
   "startDate": "1604509200",
@@ -8,7 +8,7 @@
   "category": ""
 }, {
   "endDate": "1606086000",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Lundi (S48) Nico",
   "startDate": "1606086000",
@@ -16,7 +16,7 @@
   "category": ""
 }, {
   "endDate": "1606172400",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Mardi (S48) Nico",
   "startDate": "1606172400",
@@ -24,7 +24,7 @@
   "category": ""
 }, {
   "endDate": "1606258800",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Mercredi (S48) Nico",
   "startDate": "1606258800",
@@ -32,7 +32,7 @@
   "category": ""
 }, {
   "endDate": "1606345200",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
   "title": "Event Jeudi (S48) Nico & Julie",
   "startDate": "1606345200",
@@ -40,7 +40,7 @@
   "category": ""
 }, {
   "endDate": "1606431600",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Vendredi (S48) Nico",
   "startDate": "1606431600",
@@ -48,7 +48,7 @@
   "category": ""
 }, {
   "endDate": "1606518000",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Samedi (S48) Nico",
   "startDate": "1606518000",
@@ -56,7 +56,7 @@
   "category": ""
 }, {
   "endDate": "1606604400",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Dimanche (S48) Nico",
   "startDate": "1606604400",
@@ -64,7 +64,7 @@
   "category": ""
 }, {
   "endDate": "1606690800",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Lundi (S49) Nico",
   "startDate": "1606690800",
@@ -72,7 +72,7 @@
   "category": ""
 }, {
   "endDate": "1606777200",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Mardi (S49) Nico",
   "startDate": "1606777200",
@@ -80,7 +80,7 @@
   "category": ""
 }, {
   "endDate": "1606863600",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Mercredi (S49) Nico",
   "startDate": "1606863600",
@@ -88,7 +88,7 @@
   "category": ""
 }, {
   "endDate": "1606950000",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
   "title": "Event Jeudi (S49) Nico & Julie",
   "startDate": "1606950000",
@@ -96,7 +96,7 @@
   "category": ""
 }, {
   "endDate": "1607036400",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Vendredi (S49) Nico",
   "startDate": "1607036400",
@@ -104,7 +104,7 @@
   "category": ""
 }, {
   "endDate": "1607122800",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Samedi (S49) Nico",
   "startDate": "1607122800",
@@ -112,7 +112,7 @@
   "category": ""
 }, {
   "endDate": "1607209200",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Dimanche (S49) Nico",
   "startDate": "1607209200",
@@ -120,7 +120,7 @@
   "category": ""
 }, {
   "endDate": "1607295600",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf1@schtroumpf1.com"],
   "title": "Event Lundi (S50) Nico + Val",
   "startDate": "1607295600",
@@ -128,7 +128,7 @@
   "category": ""
 }, {
   "endDate": "1607382000",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf2@schtroumpf2.com"],
   "title": "Event Mardi (S50) Nico + schtroumpf2",
   "startDate": "1607382000",
@@ -136,7 +136,7 @@
   "category": ""
 }, {
   "endDate": "1607468400",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf1@schtroumpf1.com", "schtroumpf2@schtroumpf2.com"],
   "title": "Event Mercredi (S50) Nico + Val + schtroumpf2",
   "startDate": "1607468400",
@@ -144,7 +144,7 @@
   "category": ""
 }, {
   "endDate": "1607554800",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "julie.sabadell@gmail.com"],
   "title": "Event Jeudi (S50) Nico & Julie",
   "startDate": "1607554800",
@@ -152,7 +152,7 @@
   "category": ""
 }, {
   "endDate": "1607554800",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com", "schtroumpf1@schtroumpf1.com"],
   "title": "Event Jeudi (S50) Nico & Val",
   "startDate": "1607554800",
@@ -160,7 +160,7 @@
   "category": ""
 }, {
   "endDate": "1607554800",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["schtroumpf1@schtroumpf1.com"],
   "title": "Event Jeudi (S50) Val",
   "startDate": "1607554800",
@@ -168,7 +168,7 @@
   "category": ""
 }, {
   "endDate": "1607641200",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Vendredi (S50) Nico",
   "startDate": "1607641200",
@@ -176,7 +176,7 @@
   "category": ""
 }, {
   "endDate": "1607727600",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Samedi (S50) Nico",
   "startDate": "1607727600",
@@ -184,7 +184,7 @@
   "category": ""
 }, {
   "endDate": "1607814000",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Dimanche (S50) Nico",
   "startDate": "1607814000",
@@ -192,7 +192,7 @@
   "category": ""
 }, {
   "endDate": "1607900400",
-  "reminders": [],
+  "reminders": ["300000"],
   "usersEmails": ["nicolas.mura@gmail.com"],
   "title": "Event Lundi dans 2 semaines Nico",
   "startDate": "1607900400",
