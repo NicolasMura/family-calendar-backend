@@ -152,12 +152,16 @@ export async function sendNotifs(): Promise<void> {
                       // const content: string = Number(reminder) === 0 ? 'C\'est l\'heure !' : ???;
                       // const text: string = moment.duration(
                       //   Number(event.startDate) - moment().startOf('minute').add(1, 'minute').unix(), 'seconds').humanize(true);
-                      const text: string = moment.duration(
-                        Number(event.startDate) - moment().unix(), 'seconds').humanize(true);
+                      // const text: string = moment.duration(
+                      //   Number(event.startDate) - moment().unix(), 'seconds').humanize(true);
+                      const text: string = moment.unix(Number(event.startDate)).format('dddd D MMMM') + ', '
+                        + moment.unix(Number(event.startDate)).format('k:mm') + ' - '
+                        + moment.unix(Number(event.endDate)).format('k:mm');
+                      const textCapitalized: string = text.charAt(0).toUpperCase() + text.slice(1);
 
                       webpush.sendNotification(pushConfig, JSON.stringify({
                         title: event.title,
-                        content: text,
+                        content: textCapitalized,
                         openUrl: `/?init_unix_date=${initUnixDate}&openEventId=${event._id}`
                       }))
                         .catch((err: any) => {
