@@ -3,9 +3,9 @@ import config from '../env/index';
 
 interface IConnectOptions {
   useUnifiedTopology: boolean;
-  // autoReconnect: boolean;
-  // reconnectTries: number; // Never stop trying to reconnect
-  // reconnectInterval: number;
+  autoReconnect: boolean;
+  reconnectTries: number; // Never stop trying to reconnect
+  reconnectInterval: number;
   useCreateIndex: boolean;
   loggerLevel ? : string;
   useNewUrlParser ? : boolean;
@@ -13,15 +13,17 @@ interface IConnectOptions {
 
 const connectOptions: IConnectOptions = {
   useUnifiedTopology: true,
-  // autoReconnect: true,
-  // reconnectTries: Number.MAX_VALUE,
-  // reconnectInterval: 1000,
+  autoReconnect: true,
+  reconnectTries: Number.MAX_VALUE,
+  reconnectInterval: 1000,
   useCreateIndex: true,
   useNewUrlParser: true,
 };
 
 const MONGO_URI: string = `${config.database.MONGODB_URI}${config.database.MONGODB_DB_MAIN}`;
 
+// @TODO: you can do better mon Nico
+// setTimeout(() => {
 export const db: mongoose.Connection = mongoose.createConnection(MONGO_URI, connectOptions);
 
 // handlers
@@ -60,3 +62,4 @@ db.on('disconnected', (): void => {
 db.on('fullsetup', (): void => {
   console.log('\x1b[33m"', 'MongoDB :: reconnecting... %d');
 });
+// }, 5000);

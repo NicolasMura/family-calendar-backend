@@ -119,7 +119,7 @@ function createWebSocketMessage(
 }
 
 wss.on('connection', (ws: WebSocket) => {
-  console.log('connection!');
+  console.log('wss connection!');
   // console.log('ws.url', ws.url);
   // console.log('ws.protocol', ws.protocol);
   // console.log('wss.clients', wss.clients);

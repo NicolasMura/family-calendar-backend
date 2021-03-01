@@ -154,3 +154,81 @@ http://localhost:3000/docs
 
 [travis-image]: https://travis-ci.org/caiobsouza/generator-ts-node-api.svg?branch=master
 [travis-url]: https://travis-ci.org/caiobsouza/generator-ts-node-api
+
+
+## Dockerization
+
+### Network
+
+```bash
+  docker network create family-calendar-network
+```
+
+### Backend
+
+```bash
+  cd (...)/family-calendar
+  docker build -t family-calendar-backend -f backend/Dockerfile ./backend
+  docker stop family-calendar-backend
+  docker run --rm --name family-calendar-backend \
+    --network family-calendar-network \
+    -dp 3000:3000 \
+    family-calendar-backend
+  docker logs family-calendar-backend
+  docker tag family-calendar-backend nicolasmura/family-calendar-backend
+  docker push nicolasmura/family-calendar-backend
+
+  # Start / stop the container with its name
+  docker start family-calendar-backend
+  docker stop family-calendar-backend
+
+  # Running our Image on a New Instance
+  docker run --rm --name family-calendar-backend -dp 3000:3000 nicolasmura/family-calendar-backend
+```
+
+### Database
+
+```bash
+  cd (...)/family-calendar
+  docker build -t family-calendar-database -f mongodb/Dockerfile ./mongodb
+  docker stop family-calendar-database
+  docker run --rm --name family-calendar-database \
+    --hostname family-calendar-database \
+    --network family-calendar-network --network-alias database \
+    -v /Users/nmura/dev/perso/family-calendar/mongodb/conf/mongod.conf:/etc/mongod.conf \
+    -v /Users/nmura/dev/perso/family-calendar/backend/scripts/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro \
+    -v /Users/nmura/dev/perso/family-calendar/mongodb/data/log:/var/log/mongodb/ \
+    -v /Users/nmura/dev/perso/family-calendar/mongodb/data/db:/data/db/ \
+    --env-file ./mongodb/.env \
+    -dp 28067:28067 \
+    mongo:4.4 -config /etc/mongod.conf
+  docker logs family-calendar-database
+  docker tag family-calendar-database nicolasmura/family-calendar-database
+  docker push nicolasmura/family-calendar-database
+
+  # Test
+  docker exec -it family-calendar-database bash
+
+  # Start / stop the container with its name
+  docker start family-calendar-database
+  docker stop family-calendar-database
+
+  # Running our Image on a New Instance
+  docker run --rm --name family-calendar-database -dp 28067:28067 nicolasmura/family-calendar-database
+```
+
+### Both
+
+```bash
+  # Start up the whole application (front + back + mongodb) stack using the docker-compose
+  docker-compose up
+  docker-compose up -d
+  docker-compose up -d --build
+```
+
+### Debugging network
+
+```bash
+  docker run -it --network family-calendar-network nicolaka/netshoot
+  dig family-calendar-database
+```

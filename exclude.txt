@@ -2,6 +2,9 @@
 .DS_Store
 .env
 .git
+webpack.config.js
 node_modules
 backend.tar.gz
 deploy.sh
+seed.js
+seeds

@@ -8,8 +8,9 @@ date
 echo "Backing up MongoDB database to DigitalOcean Space: $SPACE_NAME"
 
 echo "Dumping MongoDB $DB database to compressed archive"
+cd $HOME/projects/family-calendar/db-backup
 #mongodump --uri="mongodb://localhost:27017" --archive=$HOME/projects/family-calendar/db-backup/$BACKUP_NAME --gzip
-mongodump --uri="mongodb://localhost:28067" --authenticationDatabase "family_calendar_db" -u "family_calendar_db_user" -p "<PASSWORD>"
+mongodump --uri="mongodb://localhost:<MONGODB_PORT>" --authenticationDatabase "family_calendar_db" -u "family_calendar_db_user" -p "<PASSWORD>"
 tar czf $HOME/projects/family-calendar/db-backup/$BACKUP_NAME dump/
 
 echo "Send back up to Syno DS214 NAS"
