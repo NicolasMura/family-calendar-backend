@@ -199,7 +199,7 @@ http://localhost:3000/docs
     -v /Users/nmura/dev/perso/family-calendar/backend/scripts/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro \
     -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/log:/var/log/mongodb/ \
     -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/db:/data/db/ \
-    --env-file ./backend/.env.mongodb \
+    --env-file ./backend/.env \
     -dp 28067:28067 \
     mongo:4.4 -config /etc/mongod.conf
   docker logs family-calendar-database
@@ -221,15 +221,15 @@ http://localhost:3000/docs
 
 ```bash
   # Start up the whole application (front + back + mongodb) stack using the docker-compose
-  docker-compose --env-file ./backend/.env.mongodb -f docker-compose.yml --env-file ./backend/.env.mongodb up
-  docker-compose --env-file ./backend/.env.mongodb -f docker-compose.yml --env-file ./backend/.env.mongodb up -d
-  docker-compose --env-file ./backend/.env.mongodb -f docker-compose.yml --env-file ./backend/.env.mongodb up -d --build
+  docker-compose -f docker-compose.yml --env-file ./backend/.env up
+  docker-compose -f docker-compose.yml --env-file ./backend/.env up -d
+  docker-compose -f docker-compose.yml --env-file ./backend/.env up -d --build
 
-  docker-compose -f docker-compose.yml --env-file ./backend/.env.mongodb up -d --build
-  docker-compose -f docker-compose.prod.yml --env-file ./backend/.env.mongodb up -d --build
+  docker-compose -f docker-compose.yml --env-file ./backend/.env up -d --build
+  docker-compose -f docker-compose.prod.yml --env-file ./backend/.env up -d --build
 
-  docker-compose -f docker-compose.yml --env-file ./backend/.env.mongodb down
-  docker-compose -f docker-compose.prod.yml --env-file ./backend/.env.mongodb down
+  docker-compose -f docker-compose.yml --env-file ./backend/.env down
+  docker-compose -f docker-compose.prod.yml --env-file ./backend/.env down
 ```
 
 ### Debugging network

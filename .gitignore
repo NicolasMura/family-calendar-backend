@@ -6,4 +6,3 @@ package.json.bkp
 build/*
 logs/*
 send-sms.js
-.env.mongodb
