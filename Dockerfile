@@ -14,7 +14,10 @@ WORKDIR /usr/family-calendar/backend
 # Copy dependency definitions
 COPY package.json yarn.lock ./
 
-# Install dependecies
+# Install bash
+RUN apk add bash
+
+# Install dependencies
 RUN npm install pm2 -g
 RUN yarn install
 # RUN yarn install --production

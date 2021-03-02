@@ -190,16 +190,16 @@ http://localhost:3000/docs
 
 ```bash
   cd (...)/family-calendar
-  docker build -t family-calendar-database -f mongodb/Dockerfile ./mongodb
+  docker build -t family-calendar-database -f backend/Dockerfile.mongodb ./mongodb_vol
   docker stop family-calendar-database
   docker run --rm --name family-calendar-database \
     --hostname family-calendar-database \
     --network family-calendar-network --network-alias database \
-    -v /Users/nmura/dev/perso/family-calendar/mongodb/conf/mongod.conf:/etc/mongod.conf \
+    -v /Users/nmura/dev/perso/family-calendar/backend/config/mongodb/mongod.conf:/etc/mongod.conf \
     -v /Users/nmura/dev/perso/family-calendar/backend/scripts/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro \
-    -v /Users/nmura/dev/perso/family-calendar/mongodb/data/log:/var/log/mongodb/ \
-    -v /Users/nmura/dev/perso/family-calendar/mongodb/data/db:/data/db/ \
-    --env-file ./mongodb/.env \
+    -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/log:/var/log/mongodb/ \
+    -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/db:/data/db/ \
+    --env-file ./backend/.env.mongodb \
     -dp 28067:28067 \
     mongo:4.4 -config /etc/mongod.conf
   docker logs family-calendar-database
@@ -221,9 +221,15 @@ http://localhost:3000/docs
 
 ```bash
   # Start up the whole application (front + back + mongodb) stack using the docker-compose
-  docker-compose up
-  docker-compose up -d
-  docker-compose up -d --build
+  docker-compose --env-file ./backend/.env.mongodb -f docker-compose.yml --env-file ./backend/.env.mongodb up
+  docker-compose --env-file ./backend/.env.mongodb -f docker-compose.yml --env-file ./backend/.env.mongodb up -d
+  docker-compose --env-file ./backend/.env.mongodb -f docker-compose.yml --env-file ./backend/.env.mongodb up -d --build
+
+  docker-compose -f docker-compose.yml --env-file ./backend/.env.mongodb up -d --build
+  docker-compose -f docker-compose.prod.yml --env-file ./backend/.env.mongodb up -d --build
+
+  docker-compose -f docker-compose.yml --env-file ./backend/.env.mongodb down
+  docker-compose -f docker-compose.prod.yml --env-file ./backend/.env.mongodb down
 ```
 
 ### Debugging network

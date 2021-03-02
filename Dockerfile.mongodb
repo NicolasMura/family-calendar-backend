@@ -1,0 +1,18 @@
+# Create image based on the official Node 12 image from the dockerhub
+FROM mongo:4.4
+
+# A documenter + tester
+# ENV MONGODB_PORT=${MONGODB_PORT}
+# ENV MONGO_INITDB_ROOT_USERNAME admin
+# ENV MONGO_INITDB_ROOT_PASSWORD <password>
+
+# Copy custom configuration
+# COPY conf/custom-mongod.conf /etc/custom-mongod.conf
+
+# Expose the port the app runs in
+# EXPOSE 27027
+
+# A documenter + tester
+# ENTRYPOINT ["docker-entrypoint.sh"]
+# ENTRYPOINT ["mongod", "--config", "/etc/custom-mongod.conf"]
+# CMD ["mongod", "--config", "/etc/custom-mongod.conf"]

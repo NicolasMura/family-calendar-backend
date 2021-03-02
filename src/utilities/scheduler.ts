@@ -1,3 +1,4 @@
+import config from '../config/env/index';
 import EventService from '../components/Event/service';
 import { IEventModel } from '../components/Event/model';
 import { Moment } from '../../node_modules/moment/ts3.1-typings/moment';
@@ -6,6 +7,12 @@ const moment: any = require('moment');
 const webpush: any = require('web-push');
 const fetch: any = require('node-fetch');
 
+// Send SMS with OVH
+const ovh: any = require('ovh')({
+  appKey: config.ovh.appKey,
+  appSecret: config.ovh.appSecret,
+  consumerKey: config.ovh.consumerKey
+});
 
 /**
 * @export
@@ -116,6 +123,16 @@ export async function sendNotifs(): Promise<void> {
         // console.log(event.title, reminderMoment, ' : remainingTime before notification (' + index + ', ' + reminder + ') : ', remainingTime, 's');
         if (Math.abs(remainingTime) < 10) {
           // console.log('===> Notification à envoyer pour l\'événement : ', event.title);
+          const initUnixDate: string = event.startDate;
+          // const content: string = Number(reminder) === 0 ? 'C\'est l\'heure !' : ???;
+          // const text: string = moment.duration(
+          //   Number(event.startDate) - moment().startOf('minute').add(1, 'minute').unix(), 'seconds').humanize(true);
+          // const text: string = moment.duration(
+          //   Number(event.startDate) - moment().unix(), 'seconds').humanize(true);
+          const text: string = moment.unix(Number(event.startDate)).format('dddd D MMMM') + ', '
+            + moment.unix(Number(event.startDate)).format('k:mm') + ' - '
+            + moment.unix(Number(event.endDate)).format('k:mm');
+          const textCapitalized: string = text.charAt(0).toUpperCase() + text.slice(1);
 
           // test push notif
           webpush.setVapidDetails(
@@ -148,17 +165,6 @@ export async function sendNotifs(): Promise<void> {
                       };
 
                       // IT WORKS!!!
-                      const initUnixDate: string = event.startDate;
-                      // const content: string = Number(reminder) === 0 ? 'C\'est l\'heure !' : ???;
-                      // const text: string = moment.duration(
-                      //   Number(event.startDate) - moment().startOf('minute').add(1, 'minute').unix(), 'seconds').humanize(true);
-                      // const text: string = moment.duration(
-                      //   Number(event.startDate) - moment().unix(), 'seconds').humanize(true);
-                      const text: string = moment.unix(Number(event.startDate)).format('dddd D MMMM') + ', '
-                        + moment.unix(Number(event.startDate)).format('k:mm') + ' - '
-                        + moment.unix(Number(event.endDate)).format('k:mm');
-                      const textCapitalized: string = text.charAt(0).toUpperCase() + text.slice(1);
-
                       webpush.sendNotification(pushConfig, JSON.stringify({
                         title: event.title,
                         content: textCapitalized,
@@ -198,6 +204,36 @@ export async function sendNotifs(): Promise<void> {
             .catch((err: any) => {
               console.log(err);
             });
+
+          // test send SMS
+          event.usersEmails.forEach((email: string) => {
+            // A remplacer par un test sur un booléan du genre 'isOS' + il faut un moyen de récupérer le mobile...
+            if (email === 'julie.sabadell@gmail.com') {
+              ovh.request('GET', '/sms', (err: any, serviceName: string) => {
+                if (err) {
+                  console.log(err, serviceName);
+                } else {
+                  // console.log('My account SMS is ' + serviceName);
+                  console.log('Send SMS test to 0033675818974');
+
+                  // Send a simple SMS with a short number using your serviceName
+                  ovh.request('POST', '/sms/' + serviceName + '/jobs/', {
+                    message: `Rappel - ${event.title} : ${textCapitalized} - \
+https://family-calendar.nicolasmura.com/?init_unix_date=${initUnixDate}&openEventId=${event._id}`,
+                    // message: 'https://family-calendar.nicolasmura.com/settings',
+                    senderForResponse: false,
+                    sender: 'MURA',
+                    // receivers: ['0033648347459'],
+                    receivers: ['0033675818974'],
+                    // receivers: ['0033648347459', '0033675818974'],
+                    noStopClause: true
+                  }, (errsend: any, result: any) => {
+                    console.log(errsend, result);
+                  });
+                }
+              });
+            }
+          });
         }
       });
     });
