@@ -8,9 +8,14 @@ mongo --eval "
     {
       user: '$MONGO_INITDB_DBUSER_USERNAME',
       pwd: '$MONGO_INITDB_DBUSER_PASSWORD',
-      roles: [{
-        role: 'readWrite', db: '$MONGODB_DB_MAIN'
-      }]
+      roles: [
+        {
+          role: 'readWrite', db: '$MONGODB_DB_MAIN'
+        },
+        {
+          role: 'clusterMonitor', db: '$MONGO_INITDB_DATABASE'
+        }
+      ]
     }
   )
 

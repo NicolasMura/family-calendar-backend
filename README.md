@@ -1,7 +1,5 @@
 # Node.js Express API with TypeScript 3
 
-
-
 ## Description
 This generator will help you to build your own Node.js Express Mongodb API using TypeScript 3.
 
@@ -170,10 +168,12 @@ http://localhost:3000/docs
   cd (...)/family-calendar
   docker build -t family-calendar-backend -f backend/Dockerfile ./backend
   docker stop family-calendar-backend
+
   docker run --rm --name family-calendar-backend \
     --network family-calendar-network \
     -dp 3000:3000 \
     family-calendar-backend
+
   docker logs family-calendar-backend
   docker tag family-calendar-backend nicolasmura/family-calendar-backend
   docker push nicolasmura/family-calendar-backend
@@ -183,25 +183,29 @@ http://localhost:3000/docs
   docker stop family-calendar-backend
 
   # Running our Image on a New Instance
-  docker run --rm --name family-calendar-backend -dp 3000:3000 nicolasmura/family-calendar-backend
+  docker run --rm --name family-calendar-backend \
+    --network family-calendar-network \
+    -dp 3000:3000 \
+    nicolasmura/family-calendar-backend
 ```
 
 ### Database
 
 ```bash
   cd (...)/family-calendar
-  docker build -t family-calendar-database -f backend/Dockerfile.mongodb ./mongodb_vol
+  chmod +x backend/scripts/mongo-init.sh
+  docker build -t family-calendar-database -f backend/Dockerfile.mongodb ./backend
   docker stop family-calendar-database
+
   docker run --rm --name family-calendar-database \
     --hostname family-calendar-database \
     --network family-calendar-network --network-alias database \
-    -v /Users/nmura/dev/perso/family-calendar/backend/config/mongodb/mongod.conf:/etc/mongod.conf \
-    -v /Users/nmura/dev/perso/family-calendar/backend/scripts/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro \
+    --env-file ./backend/.env \
     -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/log:/var/log/mongodb/ \
     -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/db:/data/db/ \
-    --env-file ./backend/.env \
     -dp 28067:28067 \
-    mongo:4.4 -config /etc/mongod.conf
+    family-calendar-database --port 28067
+
   docker logs family-calendar-database
   docker tag family-calendar-database nicolasmura/family-calendar-database
   docker push nicolasmura/family-calendar-database
@@ -214,7 +218,14 @@ http://localhost:3000/docs
   docker stop family-calendar-database
 
   # Running our Image on a New Instance
-  docker run --rm --name family-calendar-database -dp 28067:28067 nicolasmura/family-calendar-database
+  docker run --rm --name family-calendar-database \
+    --hostname family-calendar-database \
+    --network family-calendar-network --network-alias database \
+    --env-file ./backend/.env \
+    -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/log:/var/log/mongodb/ \
+    -v /Users/nmura/dev/perso/family-calendar/mongodb_vol/data/db:/data/db/ \
+    -dp 28067:28067 \
+    nicolasmura/family-calendar-database --port 28067
 ```
 
 ### Both
@@ -230,6 +241,10 @@ http://localhost:3000/docs
 
   docker-compose -f docker-compose.yml --env-file ./backend/.env down
   docker-compose -f docker-compose.prod.yml --env-file ./backend/.env down
+
+  # Test
+  docker exec -it backend bash
+  docker exec -it database bash
 ```
 
 ### Debugging network

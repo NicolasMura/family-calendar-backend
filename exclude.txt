@@ -1,6 +1,7 @@
 ._.DS_Store
 .DS_Store
 .env
+.env.example
 .git
 webpack.config.js
 node_modules
